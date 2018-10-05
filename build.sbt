@@ -1,14 +1,27 @@
-name := course.value + "-" + assignment.value
+name "Functional Program Design"
 
 scalaVersion := "2.12.6"
 
-scalacOptions ++= Seq("-deprecation")
+libraryDependencies ++= Seq(
+  "com.storm-enroute" %% "scalameter"      % "0.10.1" % Test,
+  "com.storm-enroute" %% "scalameter-core" % "0.10.1",
+  //  "com.github.scala-blitz" %% "scala-blitz" % "1.1",
+  "org.scala-lang.modules" %% "scala-swing"            % "2.0.3",
+  "org.scalatest"          %% "scalatest"              % "3.2.0-SNAP10" % Test,
+  "org.scalacheck"         %% "scalacheck"             % "1.13.5" % "test",
+  "junit"                  % "junit"                   % "4.12" % Test,
+  "org.junit.jupiter"      % "junit-jupiter-api"       % "5.2.0" % Test,
+  "org.junit.jupiter"      % "junit-jupiter-engine"    % "5.2.0" % Test,
+  "org.junit.jupiter"      % "junit-jupiter-params"    % "5.2.0" % Test,
+  "org.junit.platform"     % "junit-platform-launcher" % "1.2.0" % Test,
+  "org.junit.platform"     % "junit-platform-engine"   % "1.2.0" % Test,
+  "org.junit.platform"     % "junit-platform-runner"   % "1.2.0" % Test
+)
 
-// grading libraries
-libraryDependencies += "junit" % "junit" % "4.10" % Test
-libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.12.1"
 
-// include the common dir
 commonSourcePackages += "common"
 
-courseId := "PeZYFz-zEeWB_AoW1KYI4Q"
+resolvers ++= Seq(
+  Resolver.mavenLocal,
+  DefaultMavenRepository
+)
